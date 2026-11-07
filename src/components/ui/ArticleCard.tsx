@@ -6,12 +6,14 @@ interface ArticleCardProps {
   article: Article;
   className?: string;
   showImage?: boolean;
+  imageClassName?: string;
 }
 
 export const ArticleCard: React.FC<ArticleCardProps> = ({
   article,
   className = '',
   showImage = true,
+  imageClassName = 'w-full sm:w-48 sm:h-32 md:w-56 md:h-36 shrink-0',
 }) => {
   const hasImage = Boolean(showImage && article.coverImage);
 
@@ -27,7 +29,7 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
       >
         {/* Cover thumbnail when present */}
         {hasImage && (
-          <div className="w-full sm:w-48 sm:h-32 md:w-56 md:h-36 shrink-0 overflow-hidden bg-stone-200 dark:bg-stone-800">
+          <div className={`${imageClassName} overflow-hidden bg-stone-200 dark:bg-stone-800`}>
             <img
               src={article.coverImage}
               alt={article.coverAlt || article.title}

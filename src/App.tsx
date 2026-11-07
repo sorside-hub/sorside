@@ -7,6 +7,8 @@ import { WritingPage } from './pages/WritingPage';
 import { ArticleDetailPage } from './pages/ArticleDetailPage';
 import { AboutPage } from './pages/AboutPage';
 import { MusicPage } from './pages/MusicPage';
+import { ReleaseDetailPage } from './pages/ReleaseDetailPage';
+import { TrackDetailPage } from './pages/TrackDetailPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 
 export default function App() {
@@ -19,6 +21,8 @@ export default function App() {
             <Route path="/writing" element={<WritingPage />} />
             <Route path="/writing/:slug" element={<ArticleDetailPage />} />
             <Route path="/music" element={<MusicPage />} />
+            <Route path="/music/releases/:slug" element={<ReleaseDetailPage />} />
+            <Route path="/music/tracks/:slug" element={<TrackDetailPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Route>

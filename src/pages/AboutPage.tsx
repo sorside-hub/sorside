@@ -40,40 +40,52 @@ export const AboutPage: React.FC = () => {
               <span className="font-semibold text-stone-900 dark:text-stone-200">Discipline:</span> Writing, Music
             </div>
             <div>
-              <span className="font-semibold text-stone-900 dark:text-stone-200">Archive Established:</span> 2026
+              <span className="font-semibold text-stone-900 dark:text-stone-200">Established:</span> 2026
             </div>
           </div>
         </div>
 
         {/* Right Column: Narrative */}
         <div className="md:col-span-7 font-sans text-base sm:text-lg leading-[1.8] text-stone-700 dark:text-stone-300 space-y-6">
-          <p>
-            <strong className="font-serif text-xl sm:text-2xl text-stone-900 dark:text-stone-100 block mb-2 font-normal">
+          <div>
+            <h2 className="font-serif text-xl sm:text-2xl font-bold text-stone-900 dark:text-stone-100 mb-3">
               Sebuah ruang independen untuk merawat pemikiran.
-            </strong>
-            Sorside adalah ruang untuk menyimpan dan membagikan sisi-sisi dari Sor—tentang tulisan, pengamatan personal, dan eksplorasi musik yang lahir dari kegelisahan sehari-hari.
+            </h2>
+            <p>
+              Sorside adalah ruang untuk menyimpan dan membagikan sisi-sisi dari Sor melalui tulisan, pengamatan personal, dan eksplorasi musik.
+            </p>
+          </div>
+
+          <p>
+            Nama sorside berasal dari Sor, sebuah panggilan, dan Side, yang berarti sisi. Sebuah identitas yang mewakili berbagai hal yang membentuk satu individu. Tidak terpaku pada satu minat, satu bentuk ekspresi, atau satu cara berkarya.
           </p>
 
           <p>
-            Nama ini mewakili keberagaman sisi dalam satu individu. Kita tidak pernah hanya terdiri dari satu peran atau satu minat. Dalam kesibukan hidup modern yang menuntut spesialisasi sempit, situs ini menjadi arsip pribadi yang jujur tempat berbagai dimensi kreatif diperbolehkan bernapas dan bertumbuh bersama.
+            Situs ini menjadi rumah digital bagi berbagai gagasan dan karya yang lahir dari pengalaman, pengamatan, serta kegelisahan sehari-hari. Sebuah tempat untuk menyimpan sesuatu yang mungkin terlalu sayang untuk dibiarkan berlalu begitu saja.
           </p>
-
-          <div className="border-l-2 border-stone-400 dark:border-stone-600 pl-5 my-6 italic font-serif text-lg text-stone-800 dark:text-stone-200">
-            &ldquo;Bukan platform media sosial, melainkan sebuah rumah digital tempat tulisan dan kreasi dihargai dengan ketenangan dan ruang baca yang nyaman.&rdquo;
-          </div>
 
           <h3 className="text-xl font-serif font-bold text-stone-900 dark:text-stone-100 pt-4">
             Eksplorasi yang Berjalan
           </h3>
 
-          <ul className="space-y-3 text-sm sm:text-base">
-            <li className="flex items-start gap-2">
-              <span className="text-stone-400 dark:text-stone-500 font-mono">01.</span>
-              <span><strong>Writing:</strong> Catatan reflektif, esai budaya, dan opini tentang kehidupan kota, hubungan, dan kreativitas.</span>
+          <ul className="space-y-4 text-sm sm:text-base">
+            <li className="flex items-start gap-2.5">
+              <span className="text-stone-400 dark:text-stone-500 font-mono text-sm pt-0.5">01.</span>
+              <div>
+                <strong className="text-stone-900 dark:text-stone-100 font-serif text-base block mb-0.5">Writing</strong>
+                <p className="text-stone-600 dark:text-stone-400">
+                  Ruang untuk mengurai pikiran, menuangkan keresahan, dan merangkai pengalaman menjadi tulisan.
+                </p>
+              </div>
             </li>
-            <li className="flex items-start gap-2">
-              <span className="text-stone-400 dark:text-stone-500 font-mono">02.</span>
-              <span><strong>Music:</strong> Eksplorasi sonik dan komposisi akustik yang saat ini sedang dalam proses produksi.</span>
+            <li className="flex items-start gap-2.5">
+              <span className="text-stone-400 dark:text-stone-500 font-mono text-sm pt-0.5">02.</span>
+              <div>
+                <strong className="text-stone-900 dark:text-stone-100 font-serif text-base block mb-0.5">Music</strong>
+                <p className="text-stone-600 dark:text-stone-400">
+                  Ruang untuk mengekspresikan berbagai hal melalui musik.
+                </p>
+              </div>
             </li>
           </ul>
 

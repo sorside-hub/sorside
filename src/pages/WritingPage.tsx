@@ -8,10 +8,18 @@ const CATEGORIES = ['All', 'Reflection', 'Opinion', 'Essay'];
 
 export const WritingPage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [selectedCategory, setSelectedCategory] = useState<string>('All');
-  const [searchQuery, setSearchQuery] = useState<string>(
-    searchParams.get('q') || ''
-  );
+
+  // Read category directly from URL query param, matching case-insensitively
+  const urlCategoryParam = searchParams.get('category');
+  const selectedCategory = useMemo(() => {
+    if (!urlCategoryParam) return 'All';
+    const found = CATEGORIES.find(
+      (c) => c.toLowerCase() === urlCategoryParam.toLowerCase()
+    );
+    return found || 'All';
+  }, [urlCategoryParam]);
+
+  const searchQuery = searchParams.get('q') || '';
 
   const filteredArticles = useMemo(() => {
     return ARTICLES.filter((article) => {
@@ -30,18 +38,34 @@ export const WritingPage: React.FC = () => {
     });
   }, [selectedCategory, searchQuery]);
 
+  const handleCategoryChange = (category: string) => {
+    const nextParams = new URLSearchParams(searchParams);
+    if (category === 'All') {
+      nextParams.delete('category');
+    } else {
+      nextParams.set('category', category.toLowerCase());
+    }
+    setSearchParams(nextParams);
+  };
+
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    setSearchQuery(value);
-    if (value) {
-      setSearchParams({ q: value });
+    const nextParams = new URLSearchParams(searchParams);
+    if (value.trim()) {
+      nextParams.set('q', value);
     } else {
-      setSearchParams({});
+      nextParams.delete('q');
     }
+    setSearchParams(nextParams);
   };
 
   const clearSearch = () => {
-    setSearchQuery('');
+    const nextParams = new URLSearchParams(searchParams);
+    nextParams.delete('q');
+    setSearchParams(nextParams);
+  };
+
+  const resetAllFilters = () => {
     setSearchParams({});
   };
 
@@ -56,7 +80,7 @@ export const WritingPage: React.FC = () => {
           Writing
         </h1>
         <p className="mt-3 text-sm sm:text-base text-stone-600 dark:text-stone-400 max-w-xl font-sans leading-relaxed">
-          Catatan, esai pendek, dan pengamatan personal mengenai apa yang kita alami, pikirkan, dan renungkan.
+          Ruang untuk mengurai pikiran, menuangkan keresahan, dan merangkai pengalaman menjadi tulisan.
         </p>
       </div>
 
@@ -69,7 +93,7 @@ export const WritingPage: React.FC = () => {
             return (
               <button
                 key={cat}
-                onClick={() => setSelectedCategory(cat)}
+                onClick={() => handleCategoryChange(cat)}
                 type="button"
                 className={`px-3 py-1.5 text-xs font-sans font-medium rounded transition-colors ${
                   isActive
@@ -120,10 +144,7 @@ export const WritingPage: React.FC = () => {
             Tidak ada tulisan yang cocok dengan pencarian &ldquo;{searchQuery}&rdquo;.
           </p>
           <button
-            onClick={() => {
-              setSelectedCategory('All');
-              clearSearch();
-            }}
+            onClick={resetAllFilters}
             className="mt-4 px-4 py-2 text-xs font-sans font-medium text-stone-800 dark:text-stone-200 underline hover:no-underline"
           >
             Reset filter pencarian

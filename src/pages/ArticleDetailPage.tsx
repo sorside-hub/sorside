@@ -1,11 +1,12 @@
 import React, { useMemo } from 'react';
-import { useParams, Link, Navigate } from 'react-router-dom';
+import { useParams, Link, Navigate, useNavigate } from 'react-router-dom';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { marked } from 'marked';
 import { ARTICLES } from '../content/articles';
 
 export const ArticleDetailPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
+  const navigate = useNavigate();
 
   const currentIndex = useMemo(() => {
     return ARTICLES.findIndex((a) => a.slug === slug);
@@ -25,17 +26,26 @@ export const ArticleDetailPage: React.FC = () => {
     return marked.parse(article.content, { async: false }) as string;
   }, [article.content]);
 
+  const handleBack = () => {
+    if (window.history.length > 1) {
+      navigate(-1);
+    } else {
+      navigate('/writing');
+    }
+  };
+
   return (
     <article className="max-w-3xl mx-auto px-6 sm:px-8 py-10 sm:py-16">
       {/* Return to Writing */}
       <div className="mb-8">
-        <Link
-          to="/writing"
-          className="inline-flex items-center gap-2 text-xs font-sans tracking-wide uppercase text-stone-500 hover:text-stone-900 dark:text-stone-400 dark:hover:text-stone-100 transition-colors"
+        <button
+          type="button"
+          onClick={handleBack}
+          className="inline-flex items-center gap-2 text-xs font-sans tracking-wide uppercase text-stone-500 hover:text-stone-900 dark:text-stone-400 dark:hover:text-stone-100 transition-colors cursor-pointer"
         >
           <ArrowLeft className="w-3.5 h-3.5" />
           Back to Writing
-        </Link>
+        </button>
       </div>
 
       {/* Article Header */}

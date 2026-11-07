@@ -24,7 +24,7 @@ export const HomePage: React.FC = () => {
           <div className="flex items-center gap-4 sm:gap-6 mt-6 sm:mt-8">
             <span className="w-10 sm:w-12 h-[1.5px] bg-stone-700 dark:bg-stone-300 shrink-0" aria-hidden="true" />
             <p className="text-sm sm:text-base text-stone-700 dark:text-stone-300 font-sans leading-relaxed">
-              Writing, music, visuals,<br />and everything in between.
+              Words, sounds,<br />and everything in between.
             </p>
           </div>
         </div>

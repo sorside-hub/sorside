@@ -1,7 +1,12 @@
 import { Article } from '../types';
+import heroArchitectureImg from '../assets/images/hero_architecture_1794072644735.jpg';
+import aboutPortraitImg from '../assets/images/about_portrait_silhouette_1794072645904.jpg';
+import delayedCupImg from '../assets/images/article_delayed_cup_1794072645473.jpg';
+import minatoSunsetImg from '../assets/images/article_minato_sunset_1794072645509.jpg';
+import cityPoleImg from '../assets/images/article_city_pole_1794072646227.jpg';
 
-export const HERO_IMAGE = '/src/assets/images/hero_architecture_1794072644735.jpg';
-export const ABOUT_PORTRAIT_IMAGE = '/src/assets/images/about_portrait_silhouette_1794072645904.jpg';
+export const HERO_IMAGE = heroArchitectureImg;
+export const ABOUT_PORTRAIT_IMAGE = aboutPortraitImg;
 
 export const ARTICLES: Article[] = [
   {
@@ -12,7 +17,7 @@ export const ARTICLES: Article[] = [
     displayDate: 'NOV 7, 2026',
     readTime: '4 min read',
     excerpt: 'Sebuah catatan tentang mengetahui apa yang harus dilakukan, tetapi tetap tidak melakukannya.',
-    coverImage: '/src/assets/images/article_delayed_cup_1794072645473.jpg',
+    coverImage: delayedCupImg,
     coverAlt: 'Secangkir kopi di meja kayu dengan berkas sinar matahari pagi',
     content: `
 Ada jarak yang aneh antara mengetahui apa yang harus dilakukan dan benar-benar melangkah untuk melakukannya.
@@ -42,7 +47,7 @@ Namun ada kelegaan yang luar biasa begitu kita melepaskan tuntutan untuk langsun
     displayDate: 'NOV 5, 2026',
     readTime: '6 min read',
     excerpt: 'Tentang privilese, perjuangan, dan orang-orang yang membantu kita tumbuh.',
-    coverImage: '/src/assets/images/article_minato_sunset_1794072645509.jpg',
+    coverImage: minatoSunsetImg,
     coverAlt: 'Siluet gedung pencakar langit kota saat senja',
     content: `
 Dalam narasi populer tentang keberhasilan, kita kerap tergoda untuk memuja sosok yang tampak mampu menyelesaikan segalanya sendirian. Kita menyukai cerita tentang pahlawan yang muncul dari ketiadaan, bergerak dengan kecepatan kilat, dan menaklukkan segala rintangan tanpa cela.
@@ -72,7 +77,7 @@ Menjadi sosok yang diandalkan menuntut kita untuk tidak hanya memikirkan pencapa
     displayDate: 'OCT 28, 2026',
     readTime: '5 min read',
     excerpt: 'Sebuah esai pendek tentang kota, ruang, dan manusia di dalamnya.',
-    coverImage: '/src/assets/images/article_city_pole_1794072646227.jpg',
+    coverImage: cityPoleImg,
     coverAlt: 'Tiang listrik kayu dengan kabel kusut di sudut kota berkabut',
     content: `
 Kota tidak pernah benar-benar tidur, tetapi ia memiliki saat-saat ketika ia melambat dan membiarkan kita bernapas.

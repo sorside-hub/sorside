@@ -22,13 +22,13 @@ export const Tracklist: React.FC<TracklistProps> = ({ tracks }) => {
           <li key={track.id}>
             <Link
               to={`/music/tracks/${track.slug}`}
-              className="py-3.5 px-2 -mx-2 rounded hover:bg-stone-200/50 dark:hover:bg-stone-800/50 transition-colors flex items-center justify-between group"
+              className="py-3.5 px-2 -mx-2 rounded hover:bg-stone-200/50 dark:hover:bg-stone-800/50 transition-colors flex items-baseline justify-between group"
             >
-              <div className="flex items-center gap-3 sm:gap-4 min-w-0">
+              <div className="flex items-baseline gap-3 sm:gap-4 min-w-0">
                 <span className="font-mono text-xs text-stone-400 dark:text-stone-500 w-6 shrink-0 group-hover:hidden">
                   {track.trackNumber.toString().padStart(2, '0')}
                 </span>
-                <span className="w-6 shrink-0 hidden group-hover:flex items-center justify-start text-stone-900 dark:text-stone-100">
+                <span className="w-6 shrink-0 hidden group-hover:flex items-center justify-start self-center text-stone-900 dark:text-stone-100">
                   <Play className="w-3.5 h-3.5 fill-current" />
                 </span>
 
